@@ -53,4 +53,3 @@ int	ft_printunsigned(unsigned int nb)
 	write(1, res, index);
 	return (index);
 }
-

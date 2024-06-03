@@ -9,19 +9,26 @@ OBJ = $(SRC:.c=.o)
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 
+BLUE := \033[0;34m
+PINK := \033[1;35m
+BLUE2 := \033[0;36m
+
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	$(AR) -rcs $@ $^
+	@$(AR) -rcs $@ $^
+	@echo "$(BLUE)COMPILATION DONE"
 
 %.o: %.c
-	$(CC) -c $(CFLAGS) $< -o $@
+	@$(CC) -c $(CFLAGS) $< -o $@
 
 clean:
-	rm -f $(OBJ)
-
+	@rm -f $(OBJ)
+	@echo "$(BLUE2)CLEAN ALL THE OBJ"
+	
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@echo "$(PINK)CLEAN EVERYTHING"
 
 re: fclean all
 
